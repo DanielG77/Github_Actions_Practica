@@ -68,5 +68,7 @@ El workflow conte cinc *jobs* principals:
 
 
 ### Lenguajes más usados
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=TU_NOMBRE_DE_USUARIO&layout=compact)](https://github.com/anuraghazra/github-readme-stats)## RESULTAT DELS ÚLTIMS TESTS
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=TU_NOMBRE_DE_USUARIO&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
+
+## RESULTAT DELS ÚLTIMS TESTS
 ![Test Failure](https://img.shields.io/badge/test-failure-red)
