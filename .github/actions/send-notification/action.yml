@@ -1,0 +1,21 @@
+name: 'Send Notification'
+description: 'Sends email notification with workflow results'
+inputs:
+  email:
+    description: 'Recipient email'
+    required: true
+  linter_result:
+    description: 'Linter job result'
+    required: true
+  cypress_result:
+    description: 'Cypress job result'
+    required: true
+  add_badge_result:
+    description: 'Add badge job result'
+    required: true
+  deploy_result:
+    description: 'Deploy job result'
+    required: true
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
