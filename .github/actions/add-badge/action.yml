@@ -2,21 +2,28 @@ name: 'Add Badge to README'
 description: 'Adds Cypress test result badge to README'
 inputs:
   outcome:
-    description: 'Test outcome'
+    description: 'Test outcome (success or failure)'
     required: true
+outputs:
+  badge_outcome:
+    description: 'The badge outcome (same as input outcome)'
 runs:
   using: 'composite'
   steps:
-    - name: Add success badge
-      if: inputs.outcome == 'success'
+    - name: Add badge to README
       shell: bash
       run: |
-        echo "## RESULTAT DELS ÚLTIMS TESTS" >> README.md
-        echo "![Cypress Tests](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)" >> README.md
-        
-    - name: Add failure badge
-      if: inputs.outcome == 'failure'
-      shell: bash
-      run: |
-        echo "## RESULTAT DELS ÚLTIMS TESTS" >> README.md
-        echo "![Test Failure](https://img.shields.io/badge/test-failure-red)" >> README.md
+        # Los badges
+        success_badge="![Cypress Tests](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)"
+        failure_badge="![Test Failure](https://img.shields.io/badge/test-failure-red)"
+        # Encabezado para los tests
+        header="## RESULTAT DELS ÚLTIMS TESTS"
+        if [ "${{ inputs.outcome }}" = "success" ]; then
+          echo "$header" >> README.md
+          echo "$success_badge" >> README.md
+        else
+          echo "$header" >> README.md
+          echo "$failure_badge" >> README.md
+        fi
+        # Establecer la salida de la acción
+        echo "badge_outcome=${{ inputs.outcome }}" >> $GITHUB_OUTPUT
