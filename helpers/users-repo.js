@@ -1,69 +1,35 @@
-const fs = require("fs");
+// helpers/users-repo.js
 
-let users = require("data/users.json");
+const users = [
+  { id: 1, name: 'Juan', lastName: 'Pérez', email: 'juan@example.com' },
+  { id: 2, name: 'María', lastName: 'Gómez', email: 'maria@example.com' },
+  // Agrega más usuarios según sea necesario
+];
 
 export const usersRepo = {
-  getAll,
-  getById,
-  create,
-  update,
-  delete: _delete,
-  deleteAllUsers,
+  getAll: () => users,
+  getById: (id) => users.find((user) => user.id === id),
+  create: ({ name, lastName, email }) => {
+    const newUser = { id: users.length + 1, name, lastName, email };
+    users.push(newUser);
+    return newUser;
+  },
+  update: (id, { name, lastName, email }) => {
+    const user = users.find((user) => user.id === id);
+    if (user) {
+      user.name = name;
+      user.lastName = lastName;
+      user.email = email;
+    }
+    return user;
+  },
+  delete: (id) => {
+    const index = users.findIndex((user) => user.id === id);
+    if (index !== -1) {
+      users.splice(index, 1);
+    }
+  },
+  deleteAllUsers: () => {
+    users.length = 0;
+  },
 };
-
-function getAll() {
-  return users;
-}
-
-function getById(id) {
-  return users.find((x) => x.id.toString() === id.toString());
-}
-
-function create({ name, lastName, email }) {
-  const user = { name, lastName, email };
-  console.log(user);
-  // validate
-  if (users.find((x) => x.email === user.email))
-    throw `Ya existe un usuario con el email ${user.email}`;
-
-  // generate new user id
-  user.id = users.length ? Math.max(...users.map((x) => x.id)) + 1 : 1;
-
-  // add and save user
-  users.push(user);
-  saveData();
-}
-
-function update(id, { name, lastName, email }) {
-  const params = { name, lastName, email };
-  const user = users.find((x) => x.id.toString() === id.toString());
-
-  // validate
-  if (
-    params.email !== user.email &&
-    users.find((x) => x.email === params.email)
-  )
-    throw `Ya existe un usuario con el email ${user.email}`;
-
-  // update and save
-  Object.assign(user, params);
-  saveData();
-}
-
-// prefixed with underscore '_' because 'delete' is a reserved word in javascript
-function _delete(id) {
-  // filter out deleted user and save
-  users = users.filter((x) => x.id.toString() !== id.toString());
-  saveData();
-}
-
-function deleteAllUsers() {
-  users = [];
-  saveData();
-}
-
-// private helper functions
-
-function saveData() {
-  fs.writeFileSync("data/users.json", JSON.stringify(users, null, 4));
-}
