@@ -74,3 +74,5 @@ El workflow conte cinc *jobs* principals:
 ![Test Failure](https://img.shields.io/badge/test-failure-red)
 ## RESULTAT DELS ÚLTIMS TESTS
 ![Cypress Tests](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)
+## RESULTAT DELS ÚLTIMS TESTS
+![Cypress Tests](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)
