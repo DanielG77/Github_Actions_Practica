@@ -2,9 +2,9 @@ name: nodejs-blog-workflow
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 permissions:
   contents: write
@@ -25,27 +25,26 @@ jobs:
         run: npm run lint
 
   cypress:
-  runs-on: ubuntu-latest
-  needs: linter
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-    - name: Install dependencies
-      run: npm install
-    - name: Run Cypress tests
-      run: npm run cypress
-      continue-on-error: true
-    - name: Upload Cypress results
-      uses: actions/upload-artifact@v4
-      with:
-        name: cypress-results
-        path: result.txt
-        retention-days: 30
-
+    runs-on: ubuntu-latest
+    needs: linter
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: npm install
+      - name: Run Cypress tests
+        run: npm run cypress
+        continue-on-error: true
+      - name: Upload Cypress results
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-results
+          path: result.txt
+          retention-days: 30
 
   add_badge:
     runs-on: ubuntu-latest
@@ -54,7 +53,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Download Cypress results
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: cypress-results
       - name: Set badge status
@@ -101,10 +100,10 @@ jobs:
           subject: 'Resultado del workflow ejecutado'
           body: |
             S'ha realitzat un push en la branca main que ha provocat l'execució del workflow amb els següents resultats:
-            - linter_job: ${{ needs.linter.outcome }}
-            - cypress_job: ${{ needs.cypress.outcome }}
-            - add_badge_job: ${{ needs.add_badge.outcome }}
-            - deploy_job: ${{ needs.deploy.outcome }}
+            - linter: ${{ needs.linter.outcome }}
+            - cypress: ${{ needs.cypress.outcome }}
+            - add_badge: ${{ needs.add_badge.outcome }}
+            - deploy: ${{ needs.deploy.outcome }}
           to: ${{ secrets.NOTIFY_EMAIL }}
           from: ${{ secrets.EMAIL_USERNAME }}
 
