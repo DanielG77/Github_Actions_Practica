@@ -1,0 +1,25 @@
+name: Update README Stats
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Touch README to force update
+        run: |
+          sed -i "s/^<!-- Last Updated:.*$/<!-- Last Updated: $(date) -->/" README.md
+
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git diff --staged --quiet || git commit -m "chore: update stats"
+          git push

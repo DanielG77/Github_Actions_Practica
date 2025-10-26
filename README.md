@@ -64,3 +64,8 @@ El workflow conte cinc *jobs* principals:
   - Cos del missatge:
 ## RESULTAT DELS ÚLTIMS TESTS
 ![Cypress Tests](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)
+
+
+
+### Lenguajes más usados
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=TU_NOMBRE_DE_USUARIO&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
