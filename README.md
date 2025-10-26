@@ -62,3 +62,5 @@ El workflow conte cinc *jobs* principals:
   - Destinatari: la teua adreca (presa d'un secret `USER_EMAIL`).
   - Assumpte: `Resultat del workflow nom_repositori_workflow`.
   - Cos del missatge:
+## RESULTAT DELS ÚLTIMS TESTS
+![Cypress Tests](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)
