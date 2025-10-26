@@ -144,8 +144,8 @@ jobs:
             - deploy_job: ${{ needs.deploy.outcome }}
           to: ${{ secrets.NOTIFY_EMAIL }}
           from: ${{ secrets.EMAIL_USERNAME }}
-
-           runs-on: ubuntu-latest
+          runs-on: ubuntu-latest
+          
   language_metrics:
     name: Language Metrics
     runs-on: ubuntu-latest
