@@ -126,6 +126,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Show language metrics
-        uses: GitHub-Linguist/linguist-action@v1
+        uses: tonys-code-base/linguist-action@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_root_path: .
