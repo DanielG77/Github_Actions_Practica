@@ -63,7 +63,7 @@ El workflow conte cinc *jobs* principals:
   - Checkout del codi.
   - Desplegament automatic amb les claus de Vercel definides com a *secrets* (`VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`).
 
-  ![Resultados Deploy_job Pre](images/vergel1.png)
+  ![Resultados Deploy_job Pre](images/vercel.png)
   - Para realizarlo debemos o podemos escojer vincular vercel con github especificamente con el proyecto con el que trabajamos
   ![Resultados Results](images/vergel2.png) 
   ademas de exportar las claves privadas de la organizacion y del proyecto y de generar un token para el proyecto
