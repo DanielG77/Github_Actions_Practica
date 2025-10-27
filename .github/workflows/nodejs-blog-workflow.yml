@@ -107,7 +107,7 @@ jobs:
           server_address: smtp.gmail.com
           server_port: 587
           username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
           subject: 'Resultado del workflow ejecutado'
           body: |
             S'ha realitzat un push en la branca main que ha provocat l'execució del workflow amb els següents resultats:
