@@ -30,6 +30,7 @@ El workflow conte cinc *jobs* principals:
 - Executa l'script de linter del projecte (`npm run lint`).
 - Verifica la qualitat i sintaxi del codi JavaScript.
 - Si hi ha errors, els mostra i **atura el proces** fins que es corregeixen.
+![Resultados Lintern](images/lintern1.png)
 
 ### 2️⃣ Cypress_job
 - Executa els **tests de Cypress** utilitzant l'*action* oficial (`cypress-io/github-action`).
@@ -37,11 +38,15 @@ El workflow conte cinc *jobs* principals:
   - Checkout del codi.
   - Execucio dels tests (continua encara que falle).
   - Creacio d'un artefacte `result.txt` amb l'eixida del test.
+  ![Resultados Cypress_job](images/cypress1.png)
 
 ### 3️⃣ Add_badge_job
 - Recupera l'artefacte `result.txt`.
 - Llig el resultat dels tests i genera un *output* amb:
 - Executa una *action propia* que modifica el fitxer `README.md` afegint un *badge* al final del document segons el resultat:
+- Part del job estroba exectutat de forma externa al actions < add-badge < actions.yml
+  ![Resultados Add_badge_job](images/add_badge1.png)
+
 
 | Resultat | Badge |
 |-----------|-------|
@@ -50,11 +55,18 @@ El workflow conte cinc *jobs* principals:
 
 - Finalment, commiteja i puja el canvi al repositori.
 
+  ![Resultados Add_badge_job](images/add_badge2.png)
+
 ### 4️⃣ Deploy_job
 - Utilitza la *action* [`amondnet/vercel-action@v20`](https://github.com/amondnet/vercel-action) per a desplegar el projecte automaticament a **Vercel**.
 - Steps:
   - Checkout del codi.
   - Desplegament automatic amb les claus de Vercel definides com a *secrets* (`VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`).
+
+  ![Resultados Deploy_job Pre](images/vergel1.png)
+  - Para realizarlo debemos o podemos escojer vincular vercel con github especificamente con el proyecto con el que trabajamos
+  ![Resultados Results](images/vergel2.png) 
+  ademas de exportar las claves privadas de la organizacion y del proyecto y de generar un token para el proyecto
 
 ### 5️⃣ Notification_job
 - Sempre s'executa, independentment dels resultats dels jobs anteriors.
@@ -62,13 +74,15 @@ El workflow conte cinc *jobs* principals:
   - Destinatari: la teua adreca (presa d'un secret `USER_EMAIL`).
   - Assumpte: `Resultat del workflow nom_repositori_workflow`.
   - Cos del missatge:
+  ![Resultados Notification_job REsukts](images/notificacion1.png) 
+
+  - Para llevar a cabo el jobs de la notificacion e requerido de mi correo electronico privado como envio y receptor
+  - Alacenandolo el secrets 
+  ![Resultados Notification_job REsukts](images/notificacion2.png) 
+  -Cabe destacar que Email_Pasword esta creada aprovechando la funcion de contraseñas para aplicaciones de Gmail
+
 ## RESULTAT DELS ÚLTIMS TESTS
 ![Cypress Tests](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)
-
-
-
-### Lenguajes más usados
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=TU_NOMBRE_DE_USUARIO&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
 
 ## RESULTAT DELS ÚLTIMS TESTS
 ![Test Failure](https://img.shields.io/badge/test-failure-red)
