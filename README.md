@@ -81,6 +81,16 @@ El workflow conte cinc *jobs* principals:
   ![Resultados Notification_job REsukts](images/notificacion2.png) 
   -Cabe destacar que Email_Pasword esta creada aprovechando la funcion de contraseñas para aplicaciones de Gmail
 
+### 6️⃣ Enlace a Vercel
+
+El projecte està desplegat automàticament mitjançant **GitHub Actions** i **Vercel**.  
+Pots veure’l en directe fent clic a l’enllaç següent:
+
+🔗 [Desplegament del projecte a Vercel](https://github-actions-practica-chi.vercel.app/)
+
+[![Deploy a Vercel](https://img.shields.io/badge/Vercel-View%20App-black?logo=vercel)](https://github-actions-practica-chi.vercel.app/)
+
+
 ## RESULTAT DELS ÚLTIMS TESTS
 ![Cypress Tests](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)
 
