@@ -116,3 +116,5 @@ Pots veure’l en directe fent clic a l’enllaç següent:
 ![Cypress Tests](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)
 ## RESULTAT DELS ÚLTIMS TESTS
 ![Cypress Tests](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)
+## RESULTAT DELS ÚLTIMS TESTS
+![Cypress Tests](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)
