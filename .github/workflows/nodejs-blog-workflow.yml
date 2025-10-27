@@ -126,6 +126,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Show language metrics
-        uses: tonys-code-base/linguist-action@v1
+        uses: tonys-code-base/linguist-action@master
         with:
           source_root_path: .
